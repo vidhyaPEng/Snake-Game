@@ -1,4 +1,5 @@
 #include "renderer.h"
+#include "obstacle.h"
 #include <iostream>
 #include <string>
 
@@ -37,14 +38,13 @@ Renderer::~Renderer() {
   SDL_DestroyWindow(sdl_window);
   SDL_Quit();
 }
-
-void Renderer::Render(Snake const snake, SDL_Point const &food) {
+  void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<std::unique_ptr<Obstacle> > &obstacles) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
   // Clear screen
-  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x30, 0x00, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
   // Render food
@@ -52,6 +52,16 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   block.x = food.x * block.w;
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
+
+  //Render obstacles if leven three had been selected
+  if(obstacles.size() != 0) {  
+    SDL_SetRenderDrawColor(sdl_renderer, 0x80, 0x80, 0x80, 0xFF);
+    for(int i = 0; i < obstacles.size(); i++){
+      block.x = obstacles[i].get()->getx() * block.w;
+      block.y = obstacles[i].get()->gety() * block.h;  
+      SDL_RenderFillRect(sdl_renderer, &block);
+    }
+  }
 
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);

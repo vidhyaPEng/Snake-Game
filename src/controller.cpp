@@ -35,6 +35,11 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
           ChangeDirection(snake, Snake::Direction::kRight,
                           Snake::Direction::kLeft);
           break;
+        
+        case SDLK_p://Pause game if key "p" is pressed
+          SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, 
+                                    "Game Paused", "Press OK to resume game", NULL);
+          break;
       }
     }
   }
