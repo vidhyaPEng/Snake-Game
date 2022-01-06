@@ -3,7 +3,7 @@
 Snake Game Levels 1 and 2:
 <img src=SnakeGameLevel1&2.png>
 
-Snake Game Level3:
+Snake Game Level 3:
 <img src=SnakeGameLevel3.png>
 
 The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
