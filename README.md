@@ -1,4 +1,5 @@
 # CPPND: Capstone Snake Game Example
+<img src=SnakeGameLevel3.png>
 
 The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 This project was created as a Capstone Project for the Undacity C++ Nanodegree.  This is a modification of the Snake Game in which the player can choose from three different levels of difficulty:
